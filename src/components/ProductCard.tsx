@@ -48,13 +48,16 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
           <p className="text-muted-foreground text-sm line-clamp-2">
             {product.description}
           </p>
-          {product.sizes && (
-            <div className="flex items-center justify-between pt-2">
+          <div className="flex items-center justify-between pt-2">
+            <span className="text-2xl font-bold text-primary">
+              ₹{product.price.toLocaleString('en-IN')}
+            </span>
+            {product.sizes && (
               <span className="text-xs text-muted-foreground">
                 Available in {product.sizes.length} sizes
               </span>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         {/* Hover Border Effect */}
