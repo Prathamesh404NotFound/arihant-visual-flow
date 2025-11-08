@@ -17,7 +17,8 @@ import {
   FaWhatsapp,
   FaInstagram,
   FaQuoteLeft,
-  FaStar
+  FaStar,
+  FaEnvelope
 } from 'react-icons/fa';
 import aboutStore from '@/assets/about-store.jpg';
 
@@ -72,7 +73,7 @@ const Home = () => {
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
       {/* Floating Action Buttons */}
-      <div className="fixed bottom-6 right-4 md:bottom-8 md:right-8 z-40 flex flex-col gap-3">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-40 flex flex-col gap-3">
         <motion.a
           href={`https://wa.me/${contactInfo.whatsapp?.replace(/[^0-9]/g, '')}`}
           target="_blank"
@@ -82,11 +83,11 @@ const Home = () => {
           transition={{ delay: 1, type: "spring", stiffness: 200 }}
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-colors group relative"
+          className="bg-green-500 text-white p-3 sm:p-4 rounded-full shadow-2xl hover:bg-green-600 transition-colors group relative"
           aria-label="WhatsApp us"
         >
-          <FaWhatsapp className="text-2xl" />
-          <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+          <FaWhatsapp className="text-xl sm:text-2xl" />
+          <span className="hidden sm:block absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
             WhatsApp Us
           </span>
         </motion.a>
@@ -97,11 +98,11 @@ const Home = () => {
           transition={{ delay: 1.2, type: "spring", stiffness: 200 }}
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-primary text-white p-4 rounded-full shadow-2xl hover:bg-primary/90 transition-colors group relative"
+          className="bg-primary text-white p-3 sm:p-4 rounded-full shadow-2xl hover:bg-primary/90 transition-colors group relative"
           aria-label="Call us"
         >
-          <FaPhone className="text-2xl" />
-          <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+          <FaPhone className="text-xl sm:text-2xl" />
+          <span className="hidden sm:block absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
             Call Us
           </span>
         </motion.a>
@@ -111,11 +112,11 @@ const Home = () => {
       <HeroSection />
 
       {/* Features Section */}
-      <section className="py-20 bg-gradient-to-b from-background to-secondary relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-background to-secondary relative overflow-hidden">
         {/* Decorative Background Elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl" />
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div className="absolute top-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-primary rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-primary rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -536,8 +537,8 @@ const Home = () => {
                     <span>{contactInfo.phone}</span>
                   </a>
                   <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 hover:text-primary transition-colors group">
-                    <FaWhatsapp className="text-primary group-hover:scale-110 transition-transform" />
-                    <span>{contactInfo.email}</span>
+                    <FaEnvelope className="text-primary group-hover:scale-110 transition-transform" />
+                    <span className="break-words">{contactInfo.email}</span>
                   </a>
                   {contactInfo.instagram && (
                     <a 
