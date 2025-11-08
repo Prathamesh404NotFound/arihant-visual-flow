@@ -1,10 +1,19 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import SEO from '@/components/SEO';
 import ProductCard from '@/components/ProductCard';
 import { products } from '@/data/data';
 import { Button } from '@/components/ui/button';
+import { getProductCollectionSchema, getBreadcrumbSchema } from '@/lib/seo-helpers';
 
 const Products = () => {
+  const structuredData = [
+    getProductCollectionSchema(products),
+    getBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'Products', url: '/products' },
+    ]),
+  ];
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'men' | 'kids'>('all');
 
   const filteredProducts =
@@ -19,7 +28,17 @@ const Products = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <>
+      <SEO
+        title="Products - Premium Men's & Kids Wear Collection | Arihant Fashion Kolhapur"
+        description="Browse our premium collection of men's suits, blazers, shirts, and kids formal wear. Quality fashion at competitive prices. Visit our store in Kolhapur for expert tailoring and personalized service."
+        keywords="men's suits Kolhapur, blazers Kolhapur, formal shirts Kolhapur, kids formal wear, men's wear collection, kids fashion Kolhapur, premium clothing Kolhapur"
+        url="/products"
+        image="/og-image.jpg"
+        type="website"
+        structuredData={structuredData}
+      />
+      <main className="min-h-screen pt-20">
       {/* Header */}
       <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary">
         <div className="container mx-auto px-4">

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import HeroSection from '@/components/HeroSection';
 import ProductCard from '@/components/ProductCard';
 import ContactForm from '@/components/ContactForm';
+import SEO from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { products, brandStory, galleryImages, contactInfo } from '@/data/data';
 import { 
@@ -21,9 +22,16 @@ import {
   FaEnvelope
 } from 'react-icons/fa';
 import aboutStore from '@/assets/about-store.jpg';
+import { getLocalBusinessSchema, getWebSiteSchema } from '@/lib/seo-helpers';
 
 const Home = () => {
   const featuredProducts = products.slice(0, 6);
+
+  // Structured data for homepage
+  const structuredData = [
+    getLocalBusinessSchema(),
+    getWebSiteSchema(),
+  ];
 
   const features = [
     {
@@ -71,7 +79,16 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
+    <>
+      <SEO
+        title="Arihant Fashion - Premium Men's & Kids Wear in Kolhapur | Style Redefined"
+        description="Kolhapur's premier destination for sophisticated men's formal wear and stylish children's fashion. Discover premium suits, blazers, shirts, and kids wear. 35+ years of excellence. Visit our store in Bhavani Mandap, Kolhapur."
+        keywords="men's wear Kolhapur, kids fashion Kolhapur, suits blazers Kolhapur, Arihant men's wear, premium fashion Kolhapur, formal wear Kolhapur, tailor services Kolhapur, men's suits Kolhapur, kids formal wear, fashion store Kolhapur"
+        url="/"
+        image="/og-image.jpg"
+        structuredData={structuredData}
+      />
+      <main className="min-h-screen w-full overflow-x-hidden">
       {/* Floating Action Buttons */}
       <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-40 flex flex-col gap-3">
         <motion.a
@@ -598,7 +615,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
+      </main>
+    </>
   );
 };
 

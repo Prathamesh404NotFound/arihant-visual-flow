@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '@/components/SEO';
 import { galleryImages } from '@/data/data';
 import { Button } from '@/components/ui/button';
 import { FaTimes } from 'react-icons/fa';
+import { getBreadcrumbSchema } from '@/lib/seo-helpers';
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -20,8 +22,22 @@ const Gallery = () => {
       ? galleryImages
       : galleryImages.filter((img) => img.category === selectedCategory);
 
+  const structuredData = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Gallery', url: '/gallery' },
+  ]);
+
   return (
-    <div className="min-h-screen pt-20">
+    <>
+      <SEO
+        title="Gallery - Style Collection Showcase | Arihant Fashion Kolhapur"
+        description="Explore our premium fashion gallery featuring men's suits, blazers, kids formal wear, and store interiors. Visual showcase of Arihant Fashion's quality collections in Kolhapur."
+        keywords="fashion gallery Kolhapur, men's wear images, kids fashion photos, Arihant store gallery, fashion collection showcase, premium clothing gallery"
+        url="/gallery"
+        image="/og-image.jpg"
+        structuredData={structuredData}
+      />
+      <main className="min-h-screen pt-20">
       {/* Header */}
       <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary">
         <div className="container mx-auto px-4">
@@ -135,7 +151,8 @@ const Gallery = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+      </main>
+    </>
   );
 };
 

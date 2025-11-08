@@ -1,11 +1,30 @@
 import { motion } from 'framer-motion';
+import SEO from '@/components/SEO';
 import { brandStory, brandMilestones } from '@/data/data';
 import aboutStore from '@/assets/about-store.jpg';
 import { FaCheck } from 'react-icons/fa';
+import { getOrganizationSchema, getBreadcrumbSchema } from '@/lib/seo-helpers';
 
 const About = () => {
+  const structuredData = [
+    getOrganizationSchema(),
+    getBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'About', url: '/about' },
+    ]),
+  ];
+
   return (
-    <div className="min-h-screen pt-20">
+    <>
+      <SEO
+        title="About Arihant Fashion - Our Story, Vision & Values | Kolhapur's Premier Fashion Store"
+        description="Learn about Arihant Fashion's journey since 2015. Discover our vision, values, and commitment to quality. Kolhapur's trusted fashion destination for men's and kids wear with 35+ years of excellence."
+        keywords="about Arihant Fashion, fashion store Kolhapur history, men's wear store Kolhapur, Arihant brand story, premium fashion Kolhapur, fashion store values"
+        url="/about"
+        image="/og-image.jpg"
+        structuredData={structuredData}
+      />
+      <main className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-primary/5 to-secondary">
         <div className="container mx-auto px-4">
@@ -200,7 +219,8 @@ const About = () => {
           </div>
         </div>
       </section>
-    </div>
+      </main>
+    </>
   );
 };
 

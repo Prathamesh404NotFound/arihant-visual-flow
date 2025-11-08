@@ -1,11 +1,50 @@
 import { motion } from 'framer-motion';
+import SEO from '@/components/SEO';
 import ContactForm from '@/components/ContactForm';
 import { contactInfo } from '@/data/data';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
+import { getLocalBusinessSchema, getBreadcrumbSchema, getFAQSchema } from '@/lib/seo-helpers';
 
 const Contact = () => {
+  const faqs = [
+    {
+      question: 'What are your store hours?',
+      answer: contactInfo.hours,
+    },
+    {
+      question: 'Where is Arihant Fashion located?',
+      answer: `Arihant Fashion is located at ${contactInfo.address}`,
+    },
+    {
+      question: 'Do you offer tailoring services?',
+      answer: 'Yes, we provide expert tailoring and alteration services to ensure the perfect fit for every garment.',
+    },
+    {
+      question: 'What payment methods do you accept?',
+      answer: 'We accept cash, credit cards, debit cards, and UPI payments.',
+    },
+  ];
+
+  const structuredData = [
+    getLocalBusinessSchema(),
+    getBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'Contact', url: '/contact' },
+    ]),
+    getFAQSchema(faqs),
+  ];
+
   return (
-    <div className="min-h-screen pt-20">
+    <>
+      <SEO
+        title="Contact Us - Visit Arihant Fashion Store in Kolhapur | Get in Touch"
+        description="Visit Arihant Fashion in Bhavani Mandap, Kolhapur. Contact us at +91 7798384061. Store hours: Mon-Sat 10 AM-9 PM, Sun 11 AM-8 PM. Expert tailoring services available."
+        keywords="Arihant Fashion contact, fashion store Kolhapur address, men's wear store Kolhapur phone, visit Arihant store, Kolhapur fashion store location"
+        url="/contact"
+        image="/og-image.jpg"
+        structuredData={structuredData}
+      />
+      <main className="min-h-screen pt-20">
       {/* Header */}
       <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary">
         <div className="container mx-auto px-4">
@@ -134,7 +173,8 @@ const Contact = () => {
           </motion.div>
         </div>
       </section>
-    </div>
+      </main>
+    </>
   );
 };
 
