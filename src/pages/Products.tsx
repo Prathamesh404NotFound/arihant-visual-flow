@@ -129,7 +129,8 @@ const Products = () => {
           </motion.div>
         </div>
       </section>
-    </div>
+    </main>
+    </>
   );
 };
 
