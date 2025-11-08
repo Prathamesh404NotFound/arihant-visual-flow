@@ -94,7 +94,6 @@ export const getProductSchema = (product: Product) => ({
   name: product.name,
   description: product.description,
   image: product.image,
-  description: product.description,
   brand: {
     '@type': 'Brand',
     name: 'Arihant Fashion',
