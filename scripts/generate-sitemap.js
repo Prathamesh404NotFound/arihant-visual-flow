@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const siteUrl = 'https://arihant-kolhapur.netlify.app/'; // Update with actual domain
+const siteUrl = 'https://arihant-kolhapur.netlify.app'; // Update with actual domain
 const buildDir = path.join(__dirname, '../dist');
 const sitemapPath = path.join(buildDir, 'sitemap.xml');
 

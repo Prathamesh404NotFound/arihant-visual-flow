@@ -7,7 +7,7 @@
 import { Product, ContactInfo } from '@/types';
 import { contactInfo } from '@/data/data';
 
-const siteUrl = 'https://arihant-kolhapur.netlify.app/'; // Update with actual domain
+const siteUrl = 'https://arihant-kolhapur.netlify.app'; // Update with actual domain
 
 /**
  * Generate Organization structured data

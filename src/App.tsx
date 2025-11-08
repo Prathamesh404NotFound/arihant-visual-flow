@@ -9,6 +9,7 @@ import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LoadingSpinner from "./components/LoadingSpinner";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 // Lazy load pages for better performance and code splitting
 const Home = lazy(() => import("./pages/Home"));
@@ -27,6 +28,8 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          {/* Google Analytics 4 - Must be inside BrowserRouter to use useLocation */}
+          <GoogleAnalytics measurementId="G-0VCV0VGC8D" />
           <div className="flex flex-col min-h-screen">
             <Navbar />
             <AnimatePresence mode="wait">

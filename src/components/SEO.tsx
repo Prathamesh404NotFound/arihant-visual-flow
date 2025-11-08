@@ -36,7 +36,7 @@ const SEO = ({
   noindex = false,
   canonical,
 }: SEOProps) => {
-  const siteUrl = 'https://arihant-kolhapur.netlify.app/'; // Update with actual domain
+  const siteUrl = 'https://arihant-kolhapur.netlify.app'; // Update with actual domain
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
   const canonicalUrl = canonical ? `${siteUrl}${canonical}` : fullUrl;
